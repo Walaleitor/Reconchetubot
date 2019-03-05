@@ -1,5 +1,5 @@
 const express = require('express');
-const Insulto = require('../model/insulto')
+const Insulto = require('../../model/insulto')
 const app = express();
 
 

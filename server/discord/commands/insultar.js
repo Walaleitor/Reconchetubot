@@ -7,7 +7,9 @@ insultar = {
     execute(msg) {
         Insulto.find({}, (err, insultos) => {
             let insulto = insultos[Math.random() * insultos.length | 0];
-            return msg.channel.send(insulto.contenido);
+            return msg.channel.send(insulto.contenido, {
+                tts: true
+            });
         })
     }
 }

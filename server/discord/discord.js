@@ -19,7 +19,7 @@ client.on('channelUpdate', (oldChannel, newChannel) => {
 
 client.commands = new Discord.Collection();
 //lee todos los ficheros .js de la carpeta commandos y los añade a la coleccion de comandos
-const commandFiles = fs.readdirSync('discord/commands').filter(file => file.endsWith('.js'));
+const commandFiles = fs.readdirSync('server/discord/commands').filter(file => file.endsWith('.js'));
 for (const file of commandFiles) {
     const command = require(`./commands/${file}`);
     client.commands.set(command.name, command);
