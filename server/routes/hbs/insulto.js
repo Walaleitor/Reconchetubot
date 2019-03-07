@@ -2,7 +2,7 @@ const express = require('express');
 const Insulto = require('../../model/insulto')
 const router = express.Router();
 
-router.get('/insulto', (req, res) => {
+router.get('/insultos', (req, res) => {
 
     Insulto.find({}, (err, insultos) => {
         content = {
@@ -13,8 +13,23 @@ router.get('/insulto', (req, res) => {
 
 });
 
-router.get('/insulto/new', (req, res) => {
-    res.render('insulto/new');
+router.post('/insultos', (req, res) => {
+
+    let body = req.body;
+    let insulto = new Insulto({ contenido: body.contenido })
+    insulto.save((err, insultoDB) => {
+        if (err) {
+            // return res.status(500).json({
+            //     ok: false,
+            //     err
+            // })
+            return res.redirect('/insultos');
+        }
+
+        res.redirect('/insultos');
+
+
+    });
 });
 
 
