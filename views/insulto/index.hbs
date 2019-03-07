@@ -1,0 +1,51 @@
+{{> head }}
+{{> navbar }}   
+   
+        
+<div class="container"> 
+    <div class="row">
+        <div class="col-4">
+            <h1>Insulto</h1>
+        </div>
+
+
+        
+        
+        <div class="col-8">
+           <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Crear un Insulto" aria-label="Crear">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Crear</button>
+            </form>
+           
+
+
+        </div>
+    </div>
+
+</div>
+<div class="container">
+   
+
+    <table class="table">
+        <tr>
+            <th> Insulto </th>
+            <th>Repeticiones</th>
+            <th>Acciones</th>
+        </tr>
+        {{#each insultos}}
+            <tr>
+                <td>{{this.contenido}}</td>
+                <td>{{this.repeticiones}}</td>
+                <td></td>
+            </tr>
+            
+        {{/each}}
+        
+    </table>
+
+
+</div>
+    
+
+
+{{> footer }} 
