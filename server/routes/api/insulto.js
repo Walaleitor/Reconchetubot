@@ -30,4 +30,4 @@ app.post('/insulto', (req, res) => {
 });
 
 
-module.exports = app;
+module.exports = app

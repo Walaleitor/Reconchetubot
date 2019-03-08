@@ -4,13 +4,14 @@ const router = express.Router();
 
 router.get('/insultos', (req, res) => {
 
-    Insulto.find({}, (err, insultos) => {
-        content = {
-            insultos
-        }
-        res.render('insulto/index', content);
-    });
+    Insulto.find({})
+        .exec((err, insultos) => {
 
+            content = {
+                insultos,
+            }
+            res.render('insulto/index', content);
+        });
 });
 
 router.post('/insultos', (req, res) => {
@@ -34,6 +35,16 @@ router.post('/insultos', (req, res) => {
 
     });
 });
+
+router.delete('/insultos/:id', (req, res) => {
+    let id = req.params.id;
+    Insulto.findByIdAndDelete(id, (err, res) => {
+        if (err) {
+            return res.redirect('/insultos');
+        }
+        req.flash('info', 'Eliminado con exito', '/insultos')
+    })
+})
 
 
 

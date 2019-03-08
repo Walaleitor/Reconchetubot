@@ -44,15 +44,23 @@
             <tr>
                 <td>{{this.contenido}}</td>
                 <td>{{this.repeticiones}}</td>
-                <td></td>
+                <td>
+                    <form method="post" action="/insultos/{{id}}?_method=DELETE">
+                        <button type="submit" class="btn btn-warning" >Borrar </button>
+                    </form>
+                    
+                </td>
             </tr>
             
         {{/each}}
         
     </table>
 
+    
 
 </div>
+
+
 
 
     
