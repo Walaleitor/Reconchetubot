@@ -1,6 +1,14 @@
 {{> head }}
 {{> navbar }}   
    
+
+   {{#if flash}}
+        <div class="container"> </div>
+            <div class="alert alert-success" role="alert">
+                {{flash}}
+            </div>
+        </div>
+   {{/if}}
         
 <div class="container"> 
     <div class="row">
@@ -45,6 +53,8 @@
 
 
 </div>
+
+
     
 
 

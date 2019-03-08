@@ -26,7 +26,10 @@ router.post('/insultos', (req, res) => {
             return res.redirect('/insultos');
         }
 
-        res.redirect('/insultos');
+        //redirige y manda una notificacion
+        req.flash('info', 'Creado con exito', '/insultos');
+
+
 
 
     });

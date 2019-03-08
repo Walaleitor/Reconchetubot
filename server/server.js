@@ -1,13 +1,27 @@
 require('./config/config');
+require('./hbs/helpers');
 const mongoose = require('mongoose')
 require('./discord/discord');
 const express = require('express');
-const app = express();
 const bodyParser = require('body-parser')
 const path = require('path');
 const hbs = require('hbs');
-require('./hbs/helpers');
+const session = require('express-session');
+const flash = require('express-flash-notification');
 
+const app = express();
+
+
+//Seguridad de la sesion
+app.set('trust proxy', 1) // trust first proxy
+app.use(session({
+    secret: 's3Cur3',
+    name: 'sessionId',
+}));
+
+
+//Flash notification
+app.use(flash(app));
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
     // parse application/json
